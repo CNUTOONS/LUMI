@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind Mirror</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">
+        <img src="https://s13emagst.akamaized.net/products/68781/68780129/images/res_706d905c23f0b5d5c850dfd49df9bf89.jpg" alt="Lumi">
+      </div>
+      <h1>Mind Mirror</h1>
+      <div class="modes">
+        <button onclick="toggleDarkMode()">Dark Mode</button>
+        <button onclick="activateSleepMode()">Sleep Mode</button>
+        <button onclick="activateGhostMode()">Ghost Mode</button>
+      </div>
+    </header>
+    <div class="container">
+        <h1>Monitorizare Activitate</h1>
+    
+        <form id="activityForm">
+          <label>TikTok (ore): <input type="number" name="tiktok" required></label>
+          <label>Instagram (ore): <input type="number" name="insta" required></label>
+          <label>YouTube (ore): <input type="number" name="yt" required></label>
+          <button type="submit">Salvează și Vezi Feedback</button>
+        </form>
+    
+        <div class="chart-box">
+          <canvas id="statsChart"></canvas>
+        </div>
+    
+        <div id="feedbackBox" class="feedback"></div>
+    
+        <div id="reminder" class="reminder">
+          Nu uita să iei o pauză la fiecare 60 minute!
+        </div>
+    
+     
+    
+      <script src="app.js"></script>
+    <!-- MOOD CHECK-IN -->
+    <section class="check-in-box">
+      <h2>Cum te simți azi?</h2>
+      <form action="submit_mood.php" method="POST">
+        <input type="text" name="mood" placeholder="Scrie cum te simți..." required>
+        <button type="submit">Trimite</button>
+      </form>
+    </section>
+
+    <!-- CHATBOT -->
+    <section class="chat-box">
+      <h3>Chat cu Lumi</h3>
+      <div class="chat-window" id="chat-window"></div>
+      <input type="text" id="chat-input" placeholder="Scrie un mesaj...">
+      <button onclick="sendMessage()">Trimite</button>
+    </section>
+
+    <!-- RANDOM QUESTIONS -->
+    <div class="daily-question">
+        <h3>Întrebarea zilei:</h3>
+        <p id="daily-q">Câte ore ai dormit azi?</p>
+        <input type="text" id="q-answer" placeholder="Scrie răspunsul tău...">
+        <button onclick="submitAnswer()">Trimite</button>
+        <p id="q-feedback"></p>
+      </div>
+
+    <!-- MOTIVATIONAL MESSAGES -->
+    <section class="motivational-messages">
+      <h3>Mesaj Motivațional</h3>
+      <p id="motivational-message">Ești minunat așa cum ești.</p>
+      <button onclick="getMotivationalMessage()">Alt mesaj</button>
+    </section>
+
+
+      <iframe src="https://manishkandpal-random-gif-generator.vercel.app/"width="100%" height="400px" frameborder="0" allowfullscreen></iframe>
+    
+      <!-- GAME -->
+    <section class="game-section">
+      <h3>Joc Relaxant: Click rapid</h3>
+      <p>Click-uri: <span id="click-count">0</span></p>
+      <button onclick="incrementClick()">Click!</button>
+    </section>
+
+    <iframe src="https://www.bubbleshooter.net/games/bubble-shooter-pop-now/" frameborder="0" scrolling="no" width="100%" height="400px" frameborder="0" allowfullscreen" ></iframe>
+    <iframe src="https://www.bubbleshooter.net/games/panda-block/" frameborder="0" scrolling="no" width="100%" height="400px" frameborder="0" allowfullscreen ></iframe>
+ </div>
+</body>
+</html>
